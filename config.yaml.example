@@ -1,0 +1,6 @@
+consumer:
+  key: abc
+  secret: abc
+access:
+  token: abc
+  secret: abc
