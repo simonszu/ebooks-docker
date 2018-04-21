@@ -24,8 +24,7 @@ fi
 cat <<EOF > /etc/cron.d/cron
 GEM_HOME=/usr/local/bundle
 
-30 * * * * root cd /ebooks; ebooks archive $USER >> /var/log/cron.log 2>&1
-45 * * * * root cd /ebooks; ebooks consume corpus/$USER.json >> /var/log/cron.log 2>&1
+30 * * * * root /ebooks/import.sh >> /var/log/cron.log 2>&1
 # An empty line is required at the end of this file for a valid cron file
 
 EOF
