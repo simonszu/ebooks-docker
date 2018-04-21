@@ -12,8 +12,8 @@ class MyBot < Ebooks::Bot
   def configure
     # Consumer details come from registering an app at https://dev.twitter.com/
     # Once you have consumer details, use "ebooks auth" for new access tokens
-    self.consumer_key = $config['consumer']['key'] # Your app consumer key
-    self.consumer_secret = $config['consumer']['secret'] # Your app consumer secret
+    self.consumer_key = "${CONSUMER_KEY}" # Your app consumer key
+    self.consumer_secret = "${CONSUMER_SECRET}" # Your app consumer secret
 
     # Users to block instead of interacting with
     self.blacklist = ['tnietzschequote']
@@ -61,6 +61,6 @@ end
 
 # Make a MyBot and attach it to an account
 MyBot.new("${BOT_USER}") do |bot|
-  bot.access_token = $config['access']['token'] # Token connecting the app to this account
-  bot.access_token_secret = $config['access']['secret'] # Secret connecting the app to this account
+  bot.access_token = "${ACCESS_TOKEN}" # Token connecting the app to this account
+  bot.access_token_secret = "${ACCESS_TOKEN_SECRET}" # Secret connecting the app to this account
 end

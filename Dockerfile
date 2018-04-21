@@ -18,9 +18,7 @@ RUN ebooks new ebooks
 RUN mkdir template \
     && mkdir app
 
-COPY config.yaml /template/config.yaml
 COPY ebooksrc /template/ebooksrc
-
 COPY bots.rb /template/bots.rb
 
 COPY import.sh /ebooks/import.sh
