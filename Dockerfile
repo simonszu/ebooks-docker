@@ -23,4 +23,6 @@ COPY run.sh /
 RUN chmod +x /run.sh \
     && touch /var/log/cron.log
 
+WORKDIR /ebooks
+
 ENTRYPOINT ["/run.sh"]
