@@ -26,8 +26,8 @@ GEM_HOME=/usr/local/bundle
 
 30 * * * * cd /ebooks; ebooks archive $USER
 45 * * * * cd /ebooks; ebooks consume corpus/$USER.json
-
-EOF 
+# An empty line is required at the end of this file for a valid cron file.1
+EOF
 
 # Make the crontab executable
 chmod +x /etc/cron.d/cron
