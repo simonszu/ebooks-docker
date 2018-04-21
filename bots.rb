@@ -2,7 +2,7 @@ require 'twitter_ebooks'
 require 'yaml'
 
 CONFIG_FILE = '/config/config.yaml'
-config = YAML::load(File.open(CONFIG_FILE))
+$config = YAML::load(File.open(CONFIG_FILE))
 
 # This is an example bot definition with event handlers commented out
 # You can define and instantiate as many bots as you like
@@ -12,8 +12,8 @@ class MyBot < Ebooks::Bot
   def configure
     # Consumer details come from registering an app at https://dev.twitter.com/
     # Once you have consumer details, use "ebooks auth" for new access tokens
-    self.consumer_key = config['consumer']['key'] # Your app consumer key
-    self.consumer_secret = config['consumer']['secret'] # Your app consumer secret
+    self.consumer_key = $config['consumer']['key'] # Your app consumer key
+    self.consumer_secret = $config['consumer']['secret'] # Your app consumer secret
 
     # Users to block instead of interacting with
     self.blacklist = ['tnietzschequote']
@@ -61,6 +61,6 @@ end
 
 # Make a MyBot and attach it to an account
 MyBot.new("ebooks") do |bot|
-  bot.access_token = config['access']['token'] # Token connecting the app to this account
-  bot.access_token_secret = config['access']['secret'] # Secret connecting the app to this account
+  bot.access_token = $config['access']['token'] # Token connecting the app to this account
+  bot.access_token_secret = $config['access']['secret'] # Secret connecting the app to this account
 end
