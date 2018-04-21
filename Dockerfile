@@ -19,7 +19,7 @@ RUN mkdir template \
 
 COPY config.yaml.example /template/config.yaml.example
 COPY ebooksrc /template/ebooksrc
-COPY bots.rb /app/bots.rb
+COPY bots.rb /template/bots.rb
 COPY import.sh /ebooks/import.sh
 RUN chmod +x /ebooks/import.sh
 

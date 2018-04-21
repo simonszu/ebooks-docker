@@ -21,7 +21,7 @@ Fetch your tweets
 1. Set the environment variable `USER` to your twitter @-handle
 2. Make sure you have the correct OAuth credentials in `/config/ebooksrc` and restarted the container
 3. Mount `/ebooks/corpus` for persistent storage
-4. Run `docker exec -it <container_name> import.sh`
+4. Run `docker exec -it <container_name> /ebooks/import.sh`
 
 Cronify tweet fetching
 ----------------------

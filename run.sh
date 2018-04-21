@@ -11,7 +11,7 @@ fi
 
 # Copy bot to mounted app folder if an empty folder is mounted
 if [ ! -f /app/bots.rb ]; then
-  cp /ebooks/bots.rb /app/bots.rb
+  cp /template/bots.rb /app/bots.rb
 fi
 
 # Copy modified config and bot to their appropriate location
