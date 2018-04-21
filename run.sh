@@ -26,7 +26,9 @@ GEM_HOME=/usr/local/bundle
 
 30 * * * * cd /ebooks; ebooks archive $USER >> /var/log/cron.log 2>&1
 45 * * * * cd /ebooks; ebooks consume corpus/$USER.json >> /var/log/cron.log 2>&1
-# An empty line is required at the end of this file for a valid cron file.1
+* * * * * echo "Hallo" >> /var/log/cron.log 2>&1
+# An empty line is required at the end of this file for a valid cron file
+
 EOF
 
 # Make the crontab executable
