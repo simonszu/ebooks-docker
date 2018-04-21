@@ -16,8 +16,8 @@ RUN mkdir template \
     && mkdir app
 
 COPY config.yaml.example /template/config.yaml.example
+COPY ebooksrc /template/ebooksrc
 COPY bots.rb /app/bots.rb
-COPY bots.rb /ebooks/bots.rb
 
 COPY run.sh /
 RUN chmod +x /run.sh \
