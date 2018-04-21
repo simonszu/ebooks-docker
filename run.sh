@@ -5,7 +5,7 @@ if [ ! -f /config/config.yaml ]; then
   cp /template/config.yaml.example /config/config.yaml
 fi
 
-if [ ! -f /config/ebooks ]; then
+if [ ! -f /config/ebooksrc ]; then
   cp /template/ebooksrc /config/ebooksrc
 else
   cp /config/ebooksrc /root/.ebooksrc
