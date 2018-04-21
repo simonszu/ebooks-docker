@@ -13,4 +13,19 @@ Modify your bot
 ---------------
 1. Mount `/app`
 2. Edit `bots.rb`
-3. Restart the container. The file is copied to the proper location, then, and executed.
+3. Change the `Ebooks::Model.load` command in line 23, so that the argument is `model/<username>.model` where `username` is your twitter @-handle.
+4. Restart the container. The file is copied to the proper location, then, and executed.
+
+Fetch your tweets
+-----------------
+1. Make sure you have the correct OAuth credentials in `/config/ebooksrc` and restarted the container
+2. Mount `/ebooks/corpus` for persistent storage
+3. Run `docker exec -it <container_name> ebooks archive <username>` where `username` is your twitter @-handle
+4. You have the last ~2000 tweets on your account in `corpus/<username>.json`
+5. Convert them into a markov chain with `docker exec -it <container_name> ebooks consume corpus/<username>.json`
+
+Cronify tweet fetching
+----------------------
+1. Set the environment variable `USER` to your twitter @-handle
+2. A cronjob for refreshing your tweets json file is automatically generated on container startup
+3. Fetch your tweets manually for the first time

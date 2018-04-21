@@ -20,5 +20,17 @@ else # If there is a bot in the app folder, copy it to the executable location
   cp -f /app/bots.rb /ebooks/bots.rb
 fi
 
+# Generate the crontab
+cat <<EOF > /etc/cron.d/cron
+GEM_HOME=/usr/local/bundle
+
+30 * * * * cd /ebooks; ebooks archive $USER
+45 * * * * cd /ebooks; ebooks consume corpus/$USER.json
+
+EOF 
+
+# Make the crontab executable
+chmod +x /etc/cron.d/cron
+
 # Start cronjob for periodically refreshing the model
 cron -f && tail -f /var/log/cron.log
