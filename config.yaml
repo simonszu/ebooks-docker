@@ -1,3 +1,4 @@
+user: ${USER}
 consumer:
   key: ${CONSUMER_KEY}
   secret: ${CONSUMER_SECRET}
