@@ -1,7 +1,16 @@
 #! /bin/bash
 
+# Copy config to mounted config folder, if an empty folder is mounted
 if [ ! -f /config/config.yaml ]; then
   cp /template/config.yaml.example /config/config.yaml
 fi
 
-cp -f /app/bots.rb /ebooks/bots.rb
+# Copy bot to mounted app folder if an empty folder is mounted
+if [ ! -f /app/bots.rb ]; then
+  cp /ebooks/bots.rb /app/bots.rb
+else # If there is a bot in the app folder, copy it to the executable location
+  cp -f /app/bots.rb /ebooks/bots.rb
+fi
+
+# Execute bash, just for now
+/bin/bash
