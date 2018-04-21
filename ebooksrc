@@ -1,6 +1,6 @@
 {
-  "consumer_key": "abc",
-  "consumer_secret": "abc",
-  "oauth_token": "abc",
-  "oauth_token_secret": "abc"
+  "consumer_key": ${CONSUMER_KEY},
+  "consumer_secret": ${CONSUMER_SECRET},
+  "oauth_token": ${ACCESS_TOKEN},
+  "oauth_token_secret": ${ACCESS_TOKEN_SECRET}
 }

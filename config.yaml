@@ -1,0 +1,6 @@
+consumer:
+  key: ${CONSUMER_KEY}
+  secret: ${CONSUMER_SECRET}
+access:
+  token: ${ACCESS_TOKEN}
+  secret: ${ACCESS_TOKEN_SECRET}

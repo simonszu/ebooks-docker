@@ -3,11 +3,8 @@ ebooks
 
 Configure Twitter access
 ------------------------
-1. Mount `/config`
-2. Request a twitter oauth keypair (access token and consumer token, each with secret)
-3. Edit `/config/config.yaml` and change the values accordingly. This is for the bot access to the twitter API.
-4. Do the same thing with `/config/ebooksrc`. This is for the initial download of your tweets to feed into the markov chain.
-5. Restart the container after each change
+1. Request a twitter oauth keypair (access token and consumer token, each with secret)
+2. Define the environment variables `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN` and `ACCESS_TOKEN_SECRET`
 
 Modify your bot
 ---------------
@@ -19,7 +16,6 @@ Modify your bot
 Fetch your tweets
 -----------------
 1. Set the environment variable `USER` to your twitter @-handle
-2. Make sure you have the correct OAuth credentials in `/config/ebooksrc` and restarted the container
 3. Mount `/ebooks/corpus` for persistent storage
 4. Run `docker exec -it <container_name> /ebooks/import.sh`
 

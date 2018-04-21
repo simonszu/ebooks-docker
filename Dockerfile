@@ -6,7 +6,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV USER=simonszu
 
 RUN apt-get update \
-    && apt-get install -y cron \
+    && apt-get install -y \
+    cron \
+    gettext \
     && rm -rf /var/lib/apt/lists*
 
 RUN gem install twitter_ebooks
@@ -17,9 +19,11 @@ RUN mkdir template \
     && mkdir config \
     && mkdir app
 
-COPY config.yaml.example /template/config.yaml.example
+COPY config.yaml /template/config.yaml
 COPY ebooksrc /template/ebooksrc
+
 COPY bots.rb /template/bots.rb
+
 COPY import.sh /ebooks/import.sh
 RUN chmod +x /ebooks/import.sh
 
