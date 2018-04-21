@@ -12,5 +12,5 @@ else # If there is a bot in the app folder, copy it to the executable location
   cp -f /app/bots.rb /ebooks/bots.rb
 fi
 
-# Execute bash, just for now
-/bin/bash
+# Start cronjob for periodically refreshing the model
+cron -f && tail -f /var/log/cron.log
