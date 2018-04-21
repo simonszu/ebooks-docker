@@ -1,29 +1,16 @@
 #! /bin/bash
 
-# Copy config to mounted config folder, if an empty folder is mounted
-
 # Copy bot to mounted app folder if an empty folder is mounted
 if [ ! -f /app/bots.rb ]; then
-  cp /template/bots.rb /app/bots.rb
+  envsubst < /template/bots.rb | tee /app/bots.rb
 fi
 
 # Template the config files with the environment vars
 envsubst < /template/ebooksrc | tee /root/.ebooksrc
-envsubst < /template/config.yaml | tee /config/config.yaml
+envsubst < /template/config.yaml | tee /ebooks/config.yaml
 
+# Copy share-populating bots.rb to the real ebooks location
 cp /app/bots.rb /ebooks/bots.rb
-
-# Generate the crontab
-cat <<EOF > /etc/cron.d/cron
-GEM_HOME=/usr/local/bundle
-
-30 * * * * root /ebooks/import.sh >> /var/log/cron.log 2>&1
-# An empty line is required at the end of this file for a valid cron file
-
-EOF
-
-# Make the crontab executable
-chmod +x /etc/cron.d/cron
 
 # Start cronjob for periodically refreshing the model
 cron -f && tail -f /var/log/cron.log

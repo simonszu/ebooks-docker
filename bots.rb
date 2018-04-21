@@ -1,8 +1,8 @@
 require 'twitter_ebooks'
 require 'yaml'
 
-CONFIG_FILE = '/config/config.yaml'
-$config = YAML::load(File.open(CONFIG_FILE))
+CONFIG_FILE = 'config.yaml'
+$config = YAML::load(File.open(File.join(File.dirname(__FILE__), CONFIG_FILE)))
 
 # This is an example bot definition with event handlers commented out
 # You can define and instantiate as many bots as you like
@@ -20,7 +20,7 @@ class MyBot < Ebooks::Bot
 
     # Range in seconds to randomize delay when bot.delay is called
     self.delay_range = 1..6
-    @model = Ebooks::Model.load("model/simonszu.model")
+    @model = Ebooks::Model.load("model/${USER}.model")
   end
 
   def on_startup
@@ -60,7 +60,7 @@ class MyBot < Ebooks::Bot
 end
 
 # Make a MyBot and attach it to an account
-MyBot.new("ebooks") do |bot|
+MyBot.new("${BOT_USER}") do |bot|
   bot.access_token = $config['access']['token'] # Token connecting the app to this account
   bot.access_token_secret = $config['access']['secret'] # Secret connecting the app to this account
 end

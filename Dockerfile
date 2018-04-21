@@ -16,7 +16,6 @@ RUN ebooks new ebooks
 
 
 RUN mkdir template \
-    && mkdir config \
     && mkdir app
 
 COPY config.yaml /template/config.yaml
@@ -26,6 +25,9 @@ COPY bots.rb /template/bots.rb
 
 COPY import.sh /ebooks/import.sh
 RUN chmod +x /ebooks/import.sh
+
+COPY cron /etc/cron.d/cron
+RUN chmod +x /etc/cron.d/cron
 
 COPY run.sh /
 RUN chmod +x /run.sh \
