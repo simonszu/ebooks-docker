@@ -7,8 +7,10 @@ if [ ! -f /app/bots.rb ]; then
   cp /template/bots.rb /app/bots.rb
 fi
 
-# Copy modified config and bot to their appropriate location
-cp /config/ebooksrc /root/.ebooksrc
+# Template the config files with the environment vars
+envsubst < /template/ebooksrc | tee /root/.ebooksrc
+envsubst < /template/config.yaml | tee /config/config.yaml
+
 cp /app/bots.rb /ebooks/bots.rb
 
 # Generate the crontab
