@@ -1,5 +1,5 @@
 #! /bin/bash
 
 cd /ebooks
-ebooks archive $USER
-ebooks consume corpus/$USER.json
+/usr/local/bundle/bin/ebooks archive $USER
+/usr/local/bundle/bin/ebooks consume corpus/$USER.json
