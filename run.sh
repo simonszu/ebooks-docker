@@ -16,11 +16,9 @@ echo
 # Copy share-populating bots.rb to the real ebooks location
 cp /app/bots.rb /ebooks/bots.rb
 
-# Fetch the first few tweets to create a model, if it isn't available yet
-if [ ! -f /ebooks/corpus/$USER.json ]; then
-  echo "No corpus found, proceeding with initial import..."
-  /ebooks/import.sh
-fi
+# Build the model and stuff
+echo "Fetching tweets, building model..."
+/ebooks/import.sh
 
 cd /ebooks
 
