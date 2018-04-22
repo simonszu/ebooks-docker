@@ -25,4 +25,5 @@ fi
 cd /ebooks
 
 echo "Starting cron for periodic fetching, starting bot..."
+
 cron -f & ebooks start
