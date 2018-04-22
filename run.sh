@@ -24,8 +24,5 @@ fi
 
 cd /ebooks
 
-echo "Starting cron for periodic fetching..."
-cron -f &
-
-echo "Starting bot..."
-ebooks start
+echo "Starting cron for periodic fetching, starting bot..."
+cron -f & ebooks start
