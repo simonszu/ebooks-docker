@@ -5,11 +5,13 @@
 if [ ! -f /app/bots.rb ]; then
   echo "Installing bot..."
   envsubst < /template/bots.rb | tee /app/bots.rb
+  echo
 fi
 
 # Template the config files with the environment vars
 echo "Configuring CLI access for tweet fetching..."
 envsubst < /template/ebooksrc | tee /root/.ebooksrc
+echo 
 
 # Copy share-populating bots.rb to the real ebooks location
 cp /app/bots.rb /ebooks/bots.rb
@@ -20,9 +22,10 @@ if [ ! -f /ebooks/corpus/$USER.json ]; then
   /ebooks/import.sh
 fi
 
+cd /ebooks
+
 echo "Starting cron for periodic fetching..."
-cron -f
+cron -f &
 
 echo "Starting bot..."
-cd /ebooks
 ebooks start
