@@ -1,8 +1,4 @@
 require 'twitter_ebooks'
-require 'yaml'
-
-CONFIG_FILE = 'config.yaml'
-$config = YAML::load(File.open(File.join(File.dirname(__FILE__), CONFIG_FILE)))
 
 # This is an example bot definition with event handlers commented out
 # You can define and instantiate as many bots as you like

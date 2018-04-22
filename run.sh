@@ -21,4 +21,8 @@ if [ ! -f /ebooks/corpus/$USER.json ]; then
 fi
 
 echo "Starting cron for periodic fetching..."
-cron -f && tail -f /var/log/cron.log
+cron -f
+
+echo "Starting bot..."
+cd /ebooks
+ebooks start
