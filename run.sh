@@ -4,12 +4,12 @@
 # Substitute environment variables in this step
 if [ ! -f /app/bots.rb ]; then
   echo "Installing bot..."
-  envsubst < /template/bots.rb >> cat /app/bots.rb
+  envsubst < /template/bots.rb | tee /app/bots.rb
 fi
 
 # Template the config files with the environment vars
 echo "Configuring CLI access for tweet fetching..."
-envsubst < /template/ebooksrc >> cat /root/.ebooksrc
+envsubst < /template/ebooksrc | tee /root/.ebooksrc
 
 # Copy share-populating bots.rb to the real ebooks location
 cp /app/bots.rb /ebooks/bots.rb
