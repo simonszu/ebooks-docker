@@ -13,7 +13,7 @@ envsubst < /template/ebooksrc | tee /root/.ebooksrc
 cp /app/bots.rb /ebooks/bots.rb
 
 # Fetch the first few tweets to create a model, if it isn't available yet
-if [ ! -f /ebooks/corpus/$USER.json ]
+if [ ! -f /ebooks/corpus/$USER.json ]; then
   /ebooks/import.sh
 fi
 
