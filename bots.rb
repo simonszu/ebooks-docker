@@ -3,6 +3,7 @@ require 'twitter_ebooks'
 # This is an example bot definition with event handlers commented out
 # You can define and instantiate as many bots as you like
 
+
 class MyBot < Ebooks::Bot
   # Configuration here applies to all MyBots
   def configure
