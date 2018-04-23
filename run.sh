@@ -11,6 +11,8 @@ fi
 # Template the config files with the environment vars
 echo "Configuring CLI access for tweet fetching..."
 envsubst < /template/ebooksrc | tee /root/.ebooksrc
+envsubst < /template/import.sh | tee /ebooks/import.sh
+chmod +x /ebooks/import.sh
 echo 
 
 # Copy share-populating bots.rb to the real ebooks location

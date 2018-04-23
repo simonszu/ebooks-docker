@@ -19,8 +19,7 @@ RUN mkdir template \
 COPY ebooksrc /template/ebooksrc
 COPY bots.rb /template/bots.rb
 
-COPY import.sh /ebooks/import.sh
-RUN chmod +x /ebooks/import.sh
+COPY import.sh /template/import.sh
 
 COPY cron /etc/cron.d/cron
 RUN chmod +x /etc/cron.d/cron
