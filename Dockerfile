@@ -1,13 +1,13 @@
-FROM ruby:2.5
+FROM ruby:2.5-alpine
+
+RUN apk --no-cache-add \
+    bash \
+    build-base \
+    gettext \
+    tzdata
 
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apt-get update \
-    && apt-get install -y \
-    cron \
-    gettext \
-    && rm -rf /var/lib/apt/lists*
 
 RUN gem install twitter_ebooks
 RUN ebooks new ebooks
@@ -21,8 +21,8 @@ COPY bots.rb /template/bots.rb
 
 COPY import.sh /template/import.sh
 
-COPY cron /etc/cron.d/cron
-RUN chmod +x /etc/cron.d/cron
+COPY crontab.txt /template
+RUN /usr/bin/crontab /template/crontab.txt
 
 COPY run.sh /
 RUN chmod +x /run.sh \

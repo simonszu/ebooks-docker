@@ -26,4 +26,4 @@ cd /ebooks
 
 echo "Starting cron for periodic fetching, starting bot..."
 
-cron -f & ebooks start
+/usr/bin/crond -f -l 8 & ebooks start
