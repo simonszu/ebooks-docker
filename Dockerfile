@@ -1,6 +1,6 @@
 FROM ruby:2.5-alpine
 
-RUN apk --no-cache-add \
+RUN apk --no-cache add \
     bash \
     build-base \
     gettext \
@@ -12,6 +12,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN gem install twitter_ebooks
 RUN ebooks new ebooks
 
+RUN apk del build-base
 
 RUN mkdir template \
     && mkdir app
