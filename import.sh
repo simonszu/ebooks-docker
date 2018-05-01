@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 cd /ebooks
 /usr/local/bundle/bin/ebooks archive $USER
