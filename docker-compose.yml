@@ -1,0 +1,17 @@
+  GNU nano 2.8.6                                                                                                      File: docker-compose.yml                                                                                                                 
+
+version: '2'
+services:
+  twitter-books:
+    build: .
+    restart: always
+    environment:
+      CONSUMER_KEY: 
+      CONSUMER_SECRET: 
+      ACCESS_TOKEN: 
+      ACCESS_TOKEN_SECRET: 
+      USER: 
+      BOT_USER: 
+    volumes:
+      - /docker/twitterbot/app:/app:rw
+      - /docker/twitterbot/tweets:/ebooks/corpus:rw
