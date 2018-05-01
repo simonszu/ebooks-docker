@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Copy bot to mounted app folder if an empty folder is mounted
 # Substitute environment variables in this step
