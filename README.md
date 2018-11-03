@@ -20,3 +20,8 @@ Fetch your tweets
 2. The tweets are automatically fetched on container startup, if the environment variables for OAuth access are properly set
 3. The tweets are periodically fetched via cron
 2. Run `docker exec -it <container_name> /ebooks/import.sh` to fetch them manually, between the cron intervals
+
+Don't spam timelines on restart
+-------------------------------
+
+Mount `/ebooks/<bot username>.json` to persist. Here, the bot will save a bookmark to save the last used tweet and reply. If you do not do this, the bot will work through all tweets from the beginning of time itself. 
