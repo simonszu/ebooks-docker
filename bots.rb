@@ -26,7 +26,7 @@ class MyBot < Ebooks::Bot
       # See https://github.com/jmettraux/rufus-scheduler
       # tweet("hi")
       # pictweet("hi", "cuteselfie.jpg")
-      tweet(@model.make_statement(140))
+      tweet(@model.make_statement(280))
     end
   end
 
