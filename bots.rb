@@ -42,7 +42,7 @@ class MyBot < Ebooks::Bot
 
   def on_mention(tweet)
     # Reply to a mention
-    reply(tweet, @model.make_statement(100))
+    reply(tweet, @model.make_statement(280))
   end
 
   def on_timeline(tweet)
